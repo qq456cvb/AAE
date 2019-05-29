@@ -1,5 +1,5 @@
 # AAE
-This repo implements the adversarial autoencoders (https://arxiv.org/pdf/1511.05644.pdf), and reproduced the paper's results on MNIST.
+This repo implements the adversarial autoencoders (https://arxiv.org/pdf/1511.05644.pdf), and reproduced the paper's results on MNIST. One difference is that I used Wasserstein distance instead of naive GAN loss.
 
 # Results
 ## VAE
