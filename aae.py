@@ -59,7 +59,7 @@ class Model(ModelDesc):
         self.f_loss = tf.reduce_mean(-tf.reduce_sum(self.f(z_real) - self.f(z), -1), name='f_loss')
         self.g_loss = tf.reduce_mean(tf.reduce_sum(-self.f(z), -1), name='g_loss')
 
-        z_interp = z + tf.random_uniform((tf.shape(x)[0], 1)) * (z_real - z)
+        z_interp = z + tf.random_uniform((tf.shape(x)[0], 1)) * (z_real - tf.stop_gradient(z))
         gradient_f = tf.gradients(self.f(z_interp), [z_interp])[0]
         gp_loss = tf.reduce_mean(tf.maximum(tf.norm(gradient_f, axis=-1) - 1, 0) ** 2, name='gp_loss')
 
